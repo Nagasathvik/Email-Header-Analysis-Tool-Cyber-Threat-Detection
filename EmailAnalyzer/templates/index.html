@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Email Insights - Unleash the Power of Email Analysis</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Modern and vibrant styling */
+      body {
+        background: linear-gradient(45deg, #ff4b2b, #ff416c);
+        min-height: 100vh;
+        font-family: "Nunito", sans-serif;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        text-align: center;
+        width: 90%;
+        max-width: 700px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        opacity: 0.8;
+      }
+
+      .upload-box {
+        border: 4px dashed rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 40px;
+        margin: 30px 0;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .upload-box:hover {
+        border-color: #ffd700;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .upload-icon {
+        font-size: 80px;
+        color: #ffd700;
+        margin-bottom: 20px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .custom-file-upload {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        color: #24243e;
+        margin-left: 140px;
+        margin-right: 140px;
+        padding: 18px 30px;
+        border-radius: 40px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      }
+
+      .custom-file-upload:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+      }
+
+      .file-info {
+        color: #ffffff;
+        margin: 20px 0;
+        font-size: 2em;
+        opacity: 0.9;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .analyze-btn {
+        background: linear-gradient(45deg, #ffd700, #ff8c00);
+        color: #24243e;
+        padding: 20px 50px;
+        border: none;
+        border-radius: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 30px;
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      }
+
+      .analyze-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+      }
+
+      .analyze-btn:active {
+        transform: translateY(1px);
+      }
+
+      /* Loader styling */
+      .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0f0c29;
+        background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+
+      .loader-container {
+        position: relative;
+        text-align: center;
+      }
+
+      /* Floating orbs animation */
+      .orb {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        animation: float 3s infinite;
+      }
+
+      .orb:nth-child(1) {
+        left: -50px;
+        top: -30px;
+        animation-delay: 0s;
+      }
+      .orb:nth-child(2) {
+        right: -30px;
+        top: 20px;
+        animation-delay: 0.5s;
+      }
+      .orb:nth-child(3) {
+        left: 20px;
+        bottom: -40px;
+        animation-delay: 1s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.1);
+        }
+      }
+
+      /* Main loader animation */
+      .loader {
+        margin-left: 90px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #00ff88;
+        border-bottom-color: #00ffff;
+        animation: spin 1.5s ease infinite;
+        position: relative;
+      }
+
+      .loader:before,
+      .loader:after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid transparent;
+      }
+
+      .loader:before {
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-top-color: #ff00ff;
+        border-bottom-color: #ff00ff;
+        animation: spin 2s linear infinite;
+      }
+
+      .loader:after {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-top-color: #00ff88;
+        border-bottom-color: #00ffff;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Progress bar animation */
+      .progress-bar {
+        width: 300px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        margin: 30px auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .progress-bar:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 50%;
+        background: linear-gradient(90deg, #00ff88, #00ffff);
+        animation: progress 2s ease-in-out infinite;
+      }
+
+      @keyframes progress {
+        0% {
+          left: -50%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      .loader-text {
+        margin-top: 20px;
+        color: #ffffff;
+        font-family: "Arial", sans-serif;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        50% {
+          text-shadow: 0 0 20px #00ff88, 0 0 30px #00ffff;
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1><i class="fas fa-unlock-alt"></i> Email Insights</h1>
+      <p>
+        Unlock the secrets hidden within your emails. Upload an EML file to
+        analyze its content, headers, and attachments for potential threats.
+      </p>
+      <form
+        id="uploadForm"
+        action="/upload"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="upload-box">
+          <i class="fas fa-cloud-upload-alt upload-icon"></i>
+          <div class="file-input-wrapper">
+            <label for="file-upload" class="custom-file-upload">
+              <i class="fas fa-file-alt"></i> Choose EML File
+            </label>
+            <input
+              style="visibility: hidden"
+              id="file-upload"
+              type="file"
+              name="filee"
+              accept=".eml"
+              required
+            />
+          </div>
+          <div id="file-info" class="file-info">No file selected</div>
+        </div>
+        <button type="submit" class="analyze-btn">
+          <i class="fas fa-search"></i> Analyze Email
+        </button>
+      </form>
+    </div>
+
+    <div id="loaderOverlay" class="loader-overlay">
+      <div class="loader-container">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="loader"></div>
+        <div class="progress-bar"></div>
+        <div class="loader-text">Analyzing Email Content...</div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("file-upload")
+        .addEventListener("change", function (e) {
+          var fileName = e.target.files[0]
+            ? e.target.files[0].name
+            : "No file selected";
+          document.getElementById("file-info").textContent = fileName;
+        });
+
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", function () {
+          document.getElementById("loaderOverlay").style.display = "flex";
+        });
+    </script>
+  </body>
+</html>

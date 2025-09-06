@@ -1,0 +1,2818 @@
+Email Headers Analysis
+==================================================
+
+Raw Headers Data:
+------------------------------
+{'Headers': {'Data': {'delivered-to': 'sknihal.cse@gmail.com', 'received': 'from MjU5OTk1MDE (unknown) by geopod-ismtpd-14 (SG) with HTTP id jhqkPm0nR-2TyN0ZG1CfBA Mon, 06 Jan 2025 12:52:36.492 +0000 (UTC)', 'x-google-smtp-source': 'AGHT+IERvedfcGOYREjycMF2LxmQUq4PHn09Zi1UQc0KzQ21zuj2twPK8dATa2Ga5aDzBn0QeSwK', 'x-received': 'by 2002:a05:6214:2522:b0:6d8:b189:5419 with SMTP id 6a1803df08f44-6dd23308e27mr960496316d6.8.1736167957935;         Mon, 06 Jan 2025 04:52:37 -0800 (PST)', 'arc-seal': 'i=1; a=rsa-sha256; t=1736167957; cv=none;         d=google.com; s=arc-20240605;         b=AmMOtwk1UCbSGr9NegzRFCWrbPWjSFvCnbKjd4usq10i9WrzlfNukIQH7f2BrzHf7H          8iqTto5Ouub/sv0J42rTZRmu8pc6CL232OpcSLJrxJhsmfB1viBh1lReYIfO7cpdmHWV          PuhSuW8TSnODuyxZE/cRWaAuuCE+aA9BF1L88gKlgH90U6ZZXO20UzoEBVWBrj9qug6+          fujyyK/7XNcqqFKoVQCJJgkwe/ekEWIa6vrDqm2oUJKOyphVVhe0TnhotqtLHaUsWoYQ          y/balT0nTS0voETvYXBPJq4+SL4Ad5D8JPtE7HwrZvKDfajLZJJklIbEO0QwhY/M1Ar7          szsA==', 'arc-message-signature': 'i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;         h=to:feedback-id:reply-to:subject:message-id:mime-version:from:date          :dkim-signature:dkim-signature;         bh=2vP73cqn3hUcSwmJuPuv6XUWQzM+yWkhB1AU20ruRU8=;         fh=lnY2Kx/QXhtvs3pvac32HQcczrg1xwQEr6wd2NCdG0c=;         b=DvfMk9wEnfKebjfZiQb70UajAumeo7nBjGm5hG+JcvqndqaAo77Py6NG2qOIYSe59i          em4jN1YForyfzuf6pHs1jqpeR4FYVP62XBgMmVhOUmyumVrzYdWgMINN63OlhYHTPUP2          AVIldoEbpEtuqL3PKzf1n9VtTro6g9ZDR7bwM9OnOMaFcWNWGbFAiLC5RjsVV00h0BH1          3ADYiudMeT2AYrlJAmpfayD6r8zAxDn6cw/WgnPWBeAf2L4k/9vy0vpx5gQXsWdDbvst          6hTGMT7xbIytS0KGxZtrE5j6x5rUyZWj76dEFJQ9/l/Ee/tkEC/BhbiUbcCTboRDogoC          HGcA==;         dara=google.com', 'arc-authentication-results': 'i=1; mx.google.com;        dkim=pass header.i=@zoom.us header.s=sg header.b=vfTJxMF4;        dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=emgnWKYa;        spf=pass (google.com: domain of bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us designates 159.183.146.37 as permitted sender) smtp.mailfrom="bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us";        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us', 'return-path': '<bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us>', 'received-spf': 'pass (google.com: domain of bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us designates 159.183.146.37 as permitted sender) client-ip=159.183.146.37;', 'authentication-results': 'mx.google.com;        dkim=pass header.i=@zoom.us header.s=sg header.b=vfTJxMF4;        dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=emgnWKYa;        spf=pass (google.com: domain of bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us designates 159.183.146.37 as permitted sender) smtp.mailfrom="bounces+25999501-90d6-sknihal.cse=gmail.com@bounce-sg.zoom.us";        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=zoom.us', 'dkim-signature': 'v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info; h=content-type:from:mime-version:subject:reply-to:x-feedback-id:to:cc: content-type:from:subject:to; s=smtpapi; bh=2vP73cqn3hUcSwmJuPuv6XUWQzM+yWkhB1AU20ruRU8=; b=emgnWKYaus1kvKa0R3PlXGTmfRAdZJOQOagw0A8+WFWsqimVVSG1x9vYPXaB1+996nCq Pr4YFO+W8l4xYLpi9iRmUYL2Ma+QwtM3aR+vTWskR0qv4OiD3t1vtAg5sJjl68xdiSvCr9 plIwgAWj4PzYMkQjDHDohl7f4rGLZ/W/k=', 'content-type': 'multipart/mixed; boundary=4716474bedea85dae220776eeddef5a8784468ce29796a80d2fad0da3920', 'date': 'Mon, 06 Jan 2025 12:52:36 +0000 (UTC)', 'from': 'Guvi Geek Network Pvt Ltd <no-reply@zoom.us>', 'mime-version': '1.0', 'message-id': '<jhqkPm0nR-2TyN0ZG1CfBA@geopod-ismtpd-14>', 'subject': 'How To Master The Art Of  AI & Machine Learning in Simple Way ?  Confirmation', 'reply-to': 'Guvi Geek Network Pvt Ltd <guviwebinars1@guvi.in>', 'feedback-id': 'byPC6aX8SiCs6zjj86iwiA:::zoom.us', 'x-feedback-id': '25999501:SG', 'x-sg-eid': '  =?us-ascii?Q?u001=2E0m5aPKyyKHwBqITOS86A0QNJ+D+PzzhbgYgODDU2vLUErcse9vgO7vih9?=  =?us-ascii?Q?wnGZF+gJPmCKuoMksh+p5dLNw2yEuZLiEY=2FpRP1?=  =?us-ascii?Q?PJbtU4Aa2WdNADisA9WYbve3gcYn=2Fw7p9WTNImk?=  =?us-ascii?Q?65EAdRewNdIeLUOyhtahstznjL7=2FV1qMVInYgNe?=  =?us-ascii?Q?KnTXG4CB1ORRBxB=2FoX8VGBcXP43QDX2GNM8vR7C?=  =?us-ascii?Q?vs+oHyk=2FXSv+OHBM9UqSOC6vBNdceNovi61tBLb?= =?us-ascii?Q?EMUu?=', 'x-sg-id': '  =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3Bq+efGylwbz3q5X9xSK9XHyEixZMkOa8ilCgx?=  =?us-ascii?Q?YOwpsXED6=2FoRQgRpyNwhJCp+NbSG4xP8sPpKkrO?=  =?us-ascii?Q?K4yJNq1xr82QviQxGE14CPOuJjyZCJ7dRc8TPA=2F?=  =?us-ascii?Q?5=2Fb366Dj6QxFXhxVIoHOfzucjLZDJyfQukMqCVB?=  =?us-ascii?Q?I3J8oZ5WUP5cvv5JSJULWrzSwMoO9mwkbMJXUDi?=  =?us-ascii?Q?J=2FHj=2FMS8131mCwfq=2FvuBa=2FnbSpc61v67MjVCCEV?=  =?us-ascii?Q?Q8UpMF1YeHnlDCYOMO7EREgIUYN7XvTihyLiKk=2F?=  =?us-ascii?Q?5ygmwUA9e2S2BC5MCWQ=2Fga4eOlYMIprG4As0jUS?=  =?us-ascii?Q?z0DzBX+rI8=2Fk+R2wAQjyGYYTqXRS56t1Nwng7n=2F?=  =?us-ascii?Q?CIEmk69YjnWvTLOZZgNw0BfLZiX6FshDNkb=2FenL?=  =?us-ascii?Q?X24MEMt7aXtEKt3zhSU0FKsHY5JX6DJEVuOo1=2FO?=  =?us-ascii?Q?SMp2rQSHZp5XGWA5WP0aoiaN7P70zARVK3+=2Fpvq?=  =?us-ascii?Q?50pYfUk=2F84BHKa1egh=2FCoOy3gEMDGcG9SjhC9hE?=  =?us-ascii?Q?dbwPwiE8RrwtjUyZp6SrYBaTVhRDuV=2Fmy5uyWPQ?=  =?us-ascii?Q?47VlmmH9=2FAkcCVbyBZluMp9lHNI7y=2Fseg2Odu=2Fx?=  =?us-ascii?Q?IWiq5o=2FPKVHXHeOx0vEgARsnsG9sft1eAmOWOpz?=  =?us-ascii?Q?4ovNqNlxvmUpabSs7e5jA16LcUipSSwDnnckwgB?=  =?us-ascii?Q?dwMLijBSB5mYb=2FmyjqRdxuY8qtpGooRl30EWBTc?=  =?us-ascii?Q?29KtZtIesxr+PoQRiA3mNNVtyBL0xXOY+b6GmhG?=  =?us-ascii?Q?KRIlywYSL1xHfc8l687stDFSvIMHsCtqSwLnbPw?=  =?us-ascii?Q?7bCwFnIEppKCWoPCin4qBs2V+npl=2FP3SlERAidc?=  =?us-ascii?Q?UgWu+0Tmhc+5318v+q+ilYqzo2Y4=2FIWAIg+gYZH?=  =?us-ascii?Q?sCoRfNbFRiJ7v96hMefWEzX+xQplWClDail=2FS69?=  =?us-ascii?Q?xRE+WeXjNEIIq5JBfEyNpNEBlmhasGhd0f5+Raa?=  =?us-ascii?Q?BcgineO2x=2FwbTPUgZGsHowK9B=2FWP0WeGU=2FjMvxe?=  =?us-ascii?Q?jlPegzbU9FF7dicJcgW0A8nI=2Fcz=2FM6yl0mmrIg8?=  =?us-ascii?Q?Um+gQNzra7zUMnpNntK28lDJdENXF9BD7S5yhWT?=  =?us-ascii?Q?2iY1TKs1XwoB8xLQOIZHMNJW+fVhYK3yK3z5AVM?=  =?us-ascii?Q?zUW5vz3Xt9e0gW0MfiIDg=3D?=', 'to': 'sknihal.cse@gmail.com', 'x-entity-id': 'u001.PiQtVcblsjP6CIFGk6KYkQ=='}, 'Investigation': {}}}
+
+---
+<class 'str'>
+---
+<class 'str'>
+---
+
+---
+How To Master The Art Of  AI & Machine Learning in Simple Way ?  Confirmation
+---
+How To Master The Art Of  AI & Machine Learning in Simple Way ?  Confirmation
+---
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3312
+Ham Probability: 0.6688
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 54.240.27.245
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL-Z
+  Network CIDR: 54.240.0.0/18
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4555
+Ham Probability: 0.5445
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.65
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3511
+Ham Probability: 0.6489
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3045
+Ham Probability: 0.6955
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3045
+Ham Probability: 0.6955
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3528
+Ham Probability: 0.6472
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3528
+Ham Probability: 0.6472
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3528
+Ham Probability: 0.6472
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3528
+Ham Probability: 0.6472
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1609
+Ham Probability: 0.8391
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 159.183.146.37
+  ASN: 11377
+  ASN Country: US
+  Network Name: TWILI-11
+  Network CIDR: 159.183.0.0/16
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4015
+Ham Probability: 0.5985
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3528
+Ham Probability: 0.6472
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4020
+Ham Probability: 0.5980
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4020
+Ham Probability: 0.5980
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3827
+Ham Probability: 0.6173
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4015
+Ham Probability: 0.5985
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4015
+Ham Probability: 0.5985
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3827
+Ham Probability: 0.6173
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4015
+Ham Probability: 0.5985
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3827
+Ham Probability: 0.6173
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3827
+Ham Probability: 0.6173
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4020
+Ham Probability: 0.5980
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3827
+Ham Probability: 0.6173
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.3789
+Ham Probability: 0.6211
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0135
+Ham Probability: 0.9865
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.7123
+Ham Probability: 0.2877
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Unknown
+Spam Probability: 0.5000
+Ham Probability: 0.5000
+
+
+Investigation Results:
+------------------------------
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4281
+Ham Probability: 0.5719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.4281
+Ham Probability: 0.5719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0684
+Ham Probability: 0.9316
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1060
+Ham Probability: 0.8940
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.176.211
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1060
+Ham Probability: 0.8940
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.176.211
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.1060
+Ham Probability: 0.8940
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.176.211
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  Error: HTTP lookup failed for https://rdap.arin.net/registry/ip/209.85.220.41.
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  Error: HTTP lookup failed for https://rdap.arin.net/registry/ip/209.85.220.41.
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Ham
+Spam Probability: 0.0305
+Ham Probability: 0.9695
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 209.85.220.41
+  ASN: 15169
+  ASN Country: US
+  Network Name: GOOGLE
+  Network CIDR: 209.85.128.0/17
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A
+
+Complete Headers Analysis:
+==================================================
+
+Spam Detection Results:
+------------------------------
+Prediction: Spam
+Spam Probability: 0.5281
+Ham Probability: 0.4719
+
+
+Investigation Results:
+------------------------------
+
+X-Sender-Ip:
+  IP: 76.223.181.143
+  ASN: 16509
+  ASN Country: US
+  Network Name: AWSEMAIL
+  Network CIDR: 76.223.176.0/20
+  Network Range: N/A
+  Network Description: N/A

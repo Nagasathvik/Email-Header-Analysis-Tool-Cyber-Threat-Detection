@@ -1,0 +1,6 @@
+{
+    "model_type": "EnhancedSpamClassifier",
+    "threshold": 0.5,
+    "vocab_size": 7726,
+    "training_date": "2025-03-04 19:37:07"
+}
