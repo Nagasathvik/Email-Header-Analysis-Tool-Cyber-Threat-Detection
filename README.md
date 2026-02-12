@@ -5,6 +5,8 @@ A comprehensive web-based framework utilizing header metadata analysis and Suppo
 ## 📑 Research Paper
 This project is based on the research paper: **"A comparative analysis of machine learning models for email threat detection: A web-based framework utilizing header metadata and SVM classification"** by Rapelli Naga Sathvik et al., Narayana Engineering College, Nellore, Andhra Pradesh, India.
 
+**Published Paper:** [Publication](https://www.taylorfrancis.com/chapters/edit/10.1201/9781003684589-65)
+
 ## 🚀 Overview
 
 Traditional email security systems primarily focus on analyzing email subject lines and body content, often overlooking the critical metadata contained in email headers. This project addresses this gap by implementing a sophisticated email threat detection system that:
@@ -308,7 +310,7 @@ Please use GitHub Issues to report bugs or request features:
 
 ## 🔗 Related Research
 
-For more information about the research methodology and detailed analysis, please refer to our published paper: [Publication](https://www.routledge.com/Advancing-Innovation-through-AI-and-Machine-Learning-Algorithms-Computational-Intelligence-for-Virtual-System-Optimization/Yedukondalu-Bolisetty/p/book/9781041164272)
+For more information about the research methodology and detailed analysis, please refer to our published paper: [Publication](https://www.taylorfrancis.com/chapters/edit/10.1201/9781003684589-65)
 
 **Citation:**
 ```
